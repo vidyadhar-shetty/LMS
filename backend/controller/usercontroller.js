@@ -108,7 +108,7 @@ console.log("file path ----", filePath)
 
     return res.status(200).json({
       error: false,
-      message: "Student details updated successfully",
+      message: "Student details added successfully",
     });
   } catch (error) {
     next(error);
