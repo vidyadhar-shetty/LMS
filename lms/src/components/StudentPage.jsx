@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom'
 
 const StudentPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     name: "",
@@ -28,17 +30,17 @@ const StudentPage = () => {
     setMessage("");
 
     const { email, name, contact, pdfFile } = formData;
-
-    const formDataToSend = new FormData();
-    formDataToSend.append("email", email);
-    formDataToSend.append("name", name);
-    formDataToSend.append("contact", contact);
-    formDataToSend.append("file", pdfFile);
+    
+    const data = new FormData();
+    data.append("email", email);
+    data.append("name", name);
+    data.append("contact", contact);
+    data.append("file", pdfFile);
 
     try {
       const response = await axios.post(
         "http://localhost:4500/api/user/updateStudentDetails",
-        formDataToSend,
+        data,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -50,6 +52,7 @@ const StudentPage = () => {
         setError(response.data.message);
       } else {
         alert(response.data.message);
+        navigate("/");
       }
     } catch (error) {
       console.error(error);

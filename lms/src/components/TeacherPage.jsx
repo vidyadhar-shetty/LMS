@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./TeacherPage.css";
+import { useNavigate } from "react-router-dom";
 
 const TeacherPage = () => {
+  const navigate = useNavigate();
   const [students, setStudents] = useState([]);
   const [error, setError] = useState(null);
 
@@ -25,6 +26,10 @@ const TeacherPage = () => {
         setError(error.message);
       });
   }, []);
+
+  const routeToSignup = () => {
+    navigate("/");
+  };
 
   return (
     <div>
@@ -56,10 +61,7 @@ const TeacherPage = () => {
                   View
                 </a>
                 {" | "}
-                <a
-                  href={student.file}
-                  download
-                >
+                <a href={student.file} download>
                   Download
                 </a>
               </td>
@@ -67,6 +69,7 @@ const TeacherPage = () => {
           ))}
         </tbody>
       </table>
+      <button type="button" class="btn btn-primary btn-lg" onClick={routeToSignup}>Signup page ⤴   </button>
     </div>
   );
 };
