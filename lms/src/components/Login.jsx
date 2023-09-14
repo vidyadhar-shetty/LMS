@@ -30,9 +30,9 @@ const Login = () => {
       );
 
       if (response.data.error) {
-        setError(response.data.message);
+        alert(response.data.message);
       } else {
-        setSuccess(response.data.message);
+        alert(response.data.message);
 
         if (response.data.role === "student") {
           navigate("/student");

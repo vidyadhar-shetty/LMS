@@ -62,7 +62,7 @@ const StudentPage = () => {
 
   return (
     <div>
-      <h2>Update Student Details</h2>
+      <h2>Student Details</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email:</label>
@@ -95,7 +95,7 @@ const StudentPage = () => {
           />
         </div>
         <div>
-          <label>Upload PDF:</label>
+          <label>Upload Resume:</label>
           <input
             type="file"
             name="pdfFile"
@@ -103,7 +103,7 @@ const StudentPage = () => {
             accept=".pdf"
             required
           />
-        </div>
+        </div> <br />
         <button type="submit">Update</button>
       </form>
       {error && <p className="error">{error}</p>}

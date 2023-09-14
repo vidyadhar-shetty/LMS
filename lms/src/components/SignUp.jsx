@@ -29,6 +29,9 @@ const SignUp = () => {
       alert(error.response.data.message);
     }
   };
+  const routeToLogin = () => {
+    navigate("/login");
+  };
 
   return (
     <div>
@@ -82,6 +85,7 @@ const SignUp = () => {
           </div>
         </div>
         <button type="submit">Sign Up</button>
+        <button type="submit" onClick={routeToLogin}>Login</button>
       </form>
     </div>
   );
